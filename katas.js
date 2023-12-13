@@ -36,3 +36,21 @@ function race(v1, v2, g) {
     return [hours, minutes, seconds];
   }
 // ________________________________________________________________________________________________________________
+// TASK:
+// The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. 
+// Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+
+// Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
+
+// Solution:
+function rgb(r, g, b) {
+  r = Math.min(255, Math.max(0, Math.round(r)));
+  g = Math.min(255, Math.max(0, Math.round(g)));
+  b = Math.min(255, Math.max(0, Math.round(b)));
+
+  const hexR = r.toString(16).padStart(2, '0').toUpperCase();
+  const hexG = g.toString(16).padStart(2, '0').toUpperCase();
+  const hexB = b.toString(16).padStart(2, '0').toUpperCase();
+
+  return hexR + hexG + hexB;
+}
