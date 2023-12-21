@@ -177,3 +177,28 @@ class RomanNumerals {
     return result;
   }
 }
+// ________________________________________________________________________________________________________________
+// TASK:
+// Complete the function that
+
+// accepts two integer arrays of equal length
+// compares the value each member in one array to the corresponding member in the other
+// squares the absolute value difference between those two values
+// and returns the average of those squared absolute value difference between each member pair.
+
+// Solution:
+var solution = function(firstArray, secondArray) {
+  if (firstArray.length !== secondArray.length) {
+    throw new Error('Arrays must be of equal length');
+  }
+
+  const sumOfSquaredDifferences = firstArray.reduce((sum, value, index) => {
+    const absoluteDifference = Math.abs(value - secondArray[index]);
+    const squaredDifference = Math.pow(absoluteDifference, 2);
+    return sum + squaredDifference;
+  }, 0);
+
+  const average = sumOfSquaredDifferences / firstArray.length;
+
+  return average;
+};
