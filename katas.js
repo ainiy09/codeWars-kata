@@ -239,3 +239,8 @@ function add(a, b) {
 
   return result.replace(/^0+/, '') || '0';
 }
+// ________________________________________________________________________________________________________________
+// Solution with using BigInt:
+function add(a, b) {
+  return (BigInt(a) + BigInt(b)).toString();
+}
