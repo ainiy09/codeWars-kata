@@ -202,3 +202,40 @@ var solution = function(firstArray, secondArray) {
 
   return average;
 };
+// ________________________________________________________________________________________________________________
+// TASK:
+// We need to sum big numbers and we require your help.
+
+// Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
+
+// The input numbers are big.
+// The input is a string of only digits
+// The numbers are positives
+
+// Solution:
+function add(a, b) {
+  let result = '';
+  let carry = 0;
+
+  while (a.length < b.length) {
+    a = '0' + a;
+  }
+  while (b.length < a.length) {
+    b = '0' + b;
+  }
+
+  for (let i = a.length - 1; i >= 0; i--) {
+    const digitA = parseInt(a[i], 10);
+    const digitB = parseInt(b[i], 10);
+    const sum = digitA + digitB + carry;
+
+    result = (sum % 10) + result;
+    carry = Math.floor(sum / 10);
+  }
+
+  if (carry > 0) {
+    result = carry + result;
+  }
+
+  return result.replace(/^0+/, '') || '0';
+}
