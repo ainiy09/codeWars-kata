@@ -244,3 +244,26 @@ function add(a, b) {
 function add(a, b) {
   return (BigInt(a) + BigInt(b)).toString();
 }
+// ________________________________________________________________________________________________________________
+// TASK:
+// Given a positive number n > 1 find the prime factor decomposition of n. 
+// The result will be a string with the following form :
+
+//  "(p1**n1)(p2**n2)...(pk**nk)"
+// with the p(i) in increasing order and n(i) empty if n(i) is 1.
+
+// Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
+
+// Solution:
+function primeFactors(n) {
+  let result = '';
+  for (let divisor = 2; n > 1; divisor++) {
+    let count = 0;
+    while (n % divisor === 0) {
+      n /= divisor;
+      count++;
+    }
+    result += count ? `(${divisor}${count > 1 ? `**${count}` : ''})` : '';
+  }
+  return result;
+}
